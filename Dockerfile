@@ -12,9 +12,11 @@ ENV TZ JST-9
 ENV TERM xterm
 
 RUN apt-get install -y vim less
+
+RUN mkdir -p /root/src
+COPY requirements.txt /root/src
+WORKDIR /root/src
+
 RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
-
-RUN python -m pip install jupyterlab
-RUN python -m pip install numpy pandas matplotlib seaborn sklearn
-
+RUN pip install -r ./requirements.txt
