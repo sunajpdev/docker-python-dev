@@ -12,11 +12,12 @@ ENV TZ JST-9
 ENV TERM xterm
 
 RUN apt-get install -y vim less
+RUN apt-get install -y sqlite3
 
-RUN mkdir -p /root/src
-COPY requirements.txt /root/src
-WORKDIR /root/src
+RUN mkdir -p /root/tmp
+COPY requirements.txt /root/tmp
+WORKDIR /root/tmp
 
-RUN pip install --upgrade pip
-RUN pip install --upgrade setuptools
-RUN pip install -r ./requirements.txt
+RUN python -m pip install --upgrade pip
+RUN python -m pip install --upgrade setuptools
+RUN python -m pip install -r ./requirements.txt

@@ -1,5 +1,9 @@
 
-jupyterlab <= 3.2.9
+flake8
+black
+isort
+poetry
+mypy
 
 numpy <= 1.22.2
 pandas <= 1.4.1
