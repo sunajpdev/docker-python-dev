@@ -18,6 +18,10 @@ RUN mkdir -p /root/tmp
 COPY requirements.txt /root/tmp
 WORKDIR /root/tmp
 
+# 初回スクリプト
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
 RUN python -m pip install --upgrade pip
 RUN python -m pip install --upgrade setuptools
 RUN python -m pip install -r ./requirements.txt
